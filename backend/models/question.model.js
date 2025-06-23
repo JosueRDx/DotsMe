@@ -17,7 +17,7 @@ const seedQuestions = async () => {
       title: "Explosivos",
       correctAnswer: {
         pictogram: "explosivo",
-        colors: ["orange", "black"],
+        colors: ["naranja", "naranja"],
         number: 1
       }
     },
@@ -25,7 +25,7 @@ const seedQuestions = async () => {
       title: "Gas Oxidante",
       correctAnswer: {
         pictogram: "oxidante",
-        colors: ["yellow", "black"],
+        colors: ["amarillo", "amarillo"],
         number: 2
       }
     },
@@ -33,7 +33,7 @@ const seedQuestions = async () => {
       title: "Gas Inflamable",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["red", "white", "black"],
+        colors: ["rojo", "rojo"],
         number: 2.1
       }
     },
@@ -41,7 +41,7 @@ const seedQuestions = async () => {
       title: "Gas no inflamable",
       correctAnswer: {
         pictogram: "botella",
-        colors: ["green", "black", "white"],
+        colors: ["verde", "verde"],
         number: 2.2
       }
     },
@@ -49,7 +49,7 @@ const seedQuestions = async () => {
       title: "Gases toxicos",
       correctAnswer: {
         pictogram: "calavera",
-        colors: ["white", "black"],
+        colors: ["blanco", "blanco"],
         number: 2.3
       }
     },
@@ -57,7 +57,7 @@ const seedQuestions = async () => {
       title: "Liquidos inflamables",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["red", "white", "black"],
+        colors: ["rojo", "rojo"],
         number: 3
       }
     },
@@ -65,7 +65,7 @@ const seedQuestions = async () => {
       title: "Solidos inflamables",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["red", "white", "black"],
+        colors: ["rayas rojas", "rayas rojas"],
         number: 4.1
       }
     },
@@ -73,7 +73,8 @@ const seedQuestions = async () => {
       title: "Solidos de combustion espontanea",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["white", "red", "black"],
+        // // // colors: [color arriba, color abajo],
+        colors: ["blanco", "rojo"],
         number: 4.2
       }
     },
@@ -81,7 +82,7 @@ const seedQuestions = async () => {
       title: "Solidos que reaccionan con el agua",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["blue", "black", "white"],
+        colors: ["azul", "azul"],
         number: 4.3
       }
     },
@@ -89,7 +90,7 @@ const seedQuestions = async () => {
       title: "Oxidante",
       correctAnswer: {
         pictogram: "oxidante",
-        colors: ["yellow", "black"],
+        colors: ["amarillo", "amarillo"],
         number: 5.1
       }
     },
@@ -97,7 +98,7 @@ const seedQuestions = async () => {
       title: "Peroxido Organico",
       correctAnswer: {
         pictogram: "fuego",
-        colors: ["red", "yellow", "black"],
+        colors: ["rojo", "amarillo"],
         number: 5.2
       }
     },
@@ -105,15 +106,15 @@ const seedQuestions = async () => {
       title: "Sustancias toxicas",
       correctAnswer: {
         pictogram: "calavera",
-        colors: ["white", "black"],
+        colors: ["blanco", "blanco"],
         number: 6.1
       }
     },
     {
       title: "Sustancia infecciosa",
       correctAnswer: {
-        pictogram: "riesgoBiologico",
-        colors: ["white", "black"],
+        pictogram: "riesgo_biologico",
+        colors: ["blanco", "blanco"],
         number: 6.2
       }
     },
@@ -121,7 +122,7 @@ const seedQuestions = async () => {
       title: "Radioactivos",
       correctAnswer: {
         pictogram: "radioactivo",
-        colors: ["white", "yellow", "black"],
+        colors: ["amarillo", "blanco"],
         number: 7
       }
     },
@@ -129,23 +130,25 @@ const seedQuestions = async () => {
       title: "Corrosivos",
       correctAnswer: {
         pictogram: "corrosivo",
-        colors: ["white", "black"],
+        colors: ["blanco", "negro"],
         number: 8
       }
     },
     {
       title: "Miscelaneos",
       correctAnswer: {
+        // Error de de pictograma, pide siempre triangulo pero no se puede omitir
         pictogram: "triangulo",
-        colors: ["white", "black"],
+        colors: ["rayas negras", "blanco"],
         number: 9
       }
     },
     {
       title: "Baterias de Litio",
       correctAnswer: {
+        // Error de de pictograma, pide siempre  pero no se puede omitir
         pictogram: "baterias",
-        colors: ["white", "black"],
+        colors: ["rayas negras", "blanco"],
         number: 9
       }
     }

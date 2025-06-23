@@ -290,6 +290,12 @@ export default function Game() {
       pin: pin,
       answer: answer,
       responseTime: responseTime
+    }, (response) => {
+      if (response.success) {
+        console.log("Respuesta (auto) recibida por el servidor:", response);
+      } else {
+        console.error("Error desde el servidor (auto):", response.error);
+      }
     });
   };
 
@@ -322,7 +328,13 @@ export default function Game() {
       pin: pin,
       answer: answer,
       responseTime: responseTime
-    });
+    }, (response) => {
+      if (response.success) {
+        console.log("Respuesta recibida por el servidor:", response);
+      } else {
+        console.error("Error desde el servidor:", response.error);
+      }
+  });
   };
 
   // Verificar si puede enviar respuesta
@@ -501,6 +513,27 @@ export default function Game() {
                       </div>
                     </div>
                   </div>
+                </div>
+              )}
+
+              {question && !hasSubmitted && (
+                <div className={styles.submitSection}>
+                  <button
+                    className={`${styles.submitButton} ${
+                      canSubmit() ? styles.canSubmit : styles.cannotSubmit
+                    }`}
+                    onClick={submitAnswer}
+                    disabled={!canSubmit()}
+                  >
+                    {isSubmitting ? (
+                      <div className={styles.spinner}></div>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        <span>Enviar Respuesta</span>
+                      </>
+                    )}
+                  </button>
                 </div>
               )}
 
