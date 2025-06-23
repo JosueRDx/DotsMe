@@ -24,6 +24,7 @@ export default function Game() {
 
   const [question, setQuestion] = useState(null);
   const [timeLeft, setTimeLeft] = useState(null);
+  const [questionTimeLimit, setQuestionTimeLimit] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   
   // Estado para saber si el juego ha iniciado alguna vez
@@ -170,6 +171,7 @@ export default function Game() {
           console.log("✅ Pregunta activa recibida:", response.question.title);
           setQuestion(response.question);
           setTimeLeft(response.timeLeft || 0);
+          setQuestionTimeLimit(response.timeLeft || 0);
         } else {
           console.log("⚠ No hay pregunta activa en este momento");
           // Mantener gameHasStarted en true pero sin pregunta
@@ -185,6 +187,7 @@ export default function Game() {
       if (response.success && response.question && !question) {
         setQuestion(response.question);
         setTimeLeft(response.timeLeft);
+        setQuestionTimeLimit(response.timeLeft);
         setGameHasStarted(true);
         console.log("Pregunta cargada (método respaldo):", response.question);
       } else if (response.error && response.error.includes("No hay juego activo")) {
@@ -198,6 +201,7 @@ export default function Game() {
       resetGameState();
       setQuestion(question);
       setTimeLeft(timeLimit);
+      setQuestionTimeLimit(timeLimit);
       setGameHasStarted(true);
     });
 
@@ -207,6 +211,7 @@ export default function Game() {
       resetGameState();
       setQuestion(question);
       setTimeLeft(timeLimit);
+      setQuestionTimeLimit(timeLimit);
       setGameHasStarted(true);
     });
 
@@ -282,7 +287,7 @@ export default function Game() {
 
     const pin = localStorage.getItem("gamePin");
     const username = localStorage.getItem("username");
-    const responseTime = timeLeft;
+    const responseTime = questionTimeLimit !== null ? questionTimeLimit - timeLeft : 0;
 
     console.log("Respuesta auto-enviada (tiempo agotado):", answer);
 
@@ -319,7 +324,7 @@ export default function Game() {
 
     const pin = localStorage.getItem("gamePin");
     const username = localStorage.getItem("username");
-    const responseTime = timeLeft; // Tiempo que tardó en responder
+        const responseTime = questionTimeLimit !== null ? questionTimeLimit - timeLeft : 0; // Tiempo que tardó en responder
 
     console.log("Enviando respuesta:", JSON.stringify(answer, null, 2));
     console.log("PIN:", pin, "Username:", username, "ResponseTime:", responseTime);
